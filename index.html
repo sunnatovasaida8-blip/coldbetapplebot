@@ -72,7 +72,8 @@
             <p class="text-xs text-slate-300 leading-relaxed">
                 Botdan foydalanish uchun Coldbet akkauntingizdagi <b class="text-tg-accent">ID raqamingizni</b> kiriting:
             </p>
-            <input type="number" id="userIdInput" placeholder="Masalan: 84920192" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-center text-tg-accent font-mono font-bold text-base focus:outline-none focus:border-tg-accent">
+            <!-- "Masalan:" so'zi olib tashlandi va oddiy ko'rinishga keltirildi -->
+            <input type="number" id="userIdInput" placeholder="84920192" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-center text-tg-accent font-mono font-bold text-base focus:outline-none focus:border-tg-accent">
             <button onclick="verifyUserId()" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-tg-accent to-emerald-400 text-slate-950 font-bold text-xs shadow-neon-green transition active:scale-95">
                 TASDIQLASH VA KIRISH
             </button>
@@ -92,7 +93,6 @@
             </div>
             
             <div class="space-y-3 text-xs text-slate-300">
-                <!-- Step 1 -->
                 <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800 flex items-center justify-between">
                     <div>
                         <span class="text-tg-gold font-bold block mb-0.5">1-Bosqich: Promokod</span>
@@ -103,7 +103,6 @@
                     </button>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800 flex items-center justify-between">
                     <div>
                         <span class="text-tg-accent font-bold block mb-0.5">2-Bosqich: Ilova</span>
@@ -114,7 +113,6 @@
                     </a>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
                     <span class="text-tg-danger font-bold block mb-0.5">3-Bosqich: Balansni To'ldirish</span>
                     <p class="text-[11px] leading-relaxed text-slate-400">
@@ -421,7 +419,6 @@
             logContainer.prepend(div);
         }
 
-        /* ID Verification */
         function verifyUserId() {
             const val = document.getElementById('userIdInput').value.trim();
             if (!val || val.length < 4) {
@@ -737,8 +734,9 @@
         window.onload = function() {
             renderAppleGrid();
             renderMinesGrid();
-            addLog('[BOT] ID kirish va 3 bosqichli qo\'llanma faol');
+            addLog('[BOT] Tizim tayyor');
         };
     </script>
 </body>
-</html>
+    </html>
+    
