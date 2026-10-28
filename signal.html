@@ -1,0 +1,39 @@
+import telebot
+from telebot import types
+
+TOKEN = "9203896359:AAFWPjFfbhAC_FV9wC0X-2Eow8PtiI0-0j0"
+bot = telebot.TeleBot(TOKEN)
+
+# WebApp havolangiz (GitHub yoki Vercel linki)
+WEBAPP_URL = "https://sizning-sayt-linki.vercel.app/"
+
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    
+    # 1. Chatda signal olish tugmasi
+    btn_chat = types.InlineKeyboardButton("💬 Chatda Signal Olish", callback_data="chat_signal")
+    
+    # 2. Web App ochish tugmasi
+    web_app = types.WebAppInfo(url=WEBAPP_URL)
+    btn_webapp = types.InlineKeyboardButton("🔥 SIGNAL OLISH (Web App) 🔥", web_app=web_app)
+    
+    markup.add(btn_chat, btn_webapp)
+    
+    bot.send_message(
+        message.chat.id, 
+        "❄️ **COLD_BOT SIGNAL v4.2** ga xush kelibsiz!\n\nSignal qayerda taqdim etilishini tanlang:", 
+        parse_mode="Markdown", 
+        reply_markup=markup
+    )
+
+@bot.callback_query_handler(func=lambda call: call.data == "chat_signal")
+def callback_inline(call):
+    bot.answer_callback_query(call.id)
+    bot.send_message(
+        call.message.chat.id, 
+        "🍏 **Apple of Fortune Chat Signali:**\n1-qator: 3-katak\n2-qator: 1-katak\n3-qator: 4-katak\n\n_To'liq tahlil uchun Web App tugmasini bosing!_", 
+        parse_mode="Markdown"
+    )
+
+bot.polling(none_stop=True)
